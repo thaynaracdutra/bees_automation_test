@@ -3,7 +3,8 @@
 ### Fork this repo follow the instructions bellow for the test 
 <BR>
 
-#### Automate the creation flow of google email in web 
+#### Automate the send email process using BOL as provider in web
+
 
 - Use page object pattern or relative patterns of your preference.
 - Use BDD for the any scenario you want to do, please do unless one negative scenario.
