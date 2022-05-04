@@ -23,7 +23,7 @@ Links:
 <BR>
 
 ### Technical Requirements for Automation
-- Test both UI/API 
+- Test both UI and API 
 - Use page object pattern or relative patterns of your preference.
 - Use BDD for any scenario you want to do
 - You can choose any programming language, we recommend to you use Python 3.6+,  *BUT IT'S UP TO YOU*
