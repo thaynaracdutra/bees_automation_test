@@ -1,14 +1,32 @@
-# TEST QA ABINBEV
+# Test Manual/Automation QA - BEES SAAS
 
-### Fork this repo follow the instructions bellow for the test 
+### Fork this repo and follow the instructions bellow for the test 
 <BR>
 
-#### Automate the send email process using BOL as provider in web
+### Business Rules
+
+<br>
+
+We develop a application that will help us to manage our inventory, deposits and items. Feel free to register your account and start using our application.
+Take your time to play around on the application's UI and API to get familiar with the system.
+
+For this test you will have to create a test automation project using BDD and try to test as
+many scenarios as possible. Please create at least one negative scenario for which feature you mapped.
 
 
+<br>
+Links:
+
+* Applicattion link - https://test-bees.herokuapp.com
+* API Docs - https://test-bees.herokuapp.com/api-docs/index.html 
+
+<BR>
+
+### Technical Requirements for Automation
+- Test both UI/API 
 - Use page object pattern or relative patterns of your preference.
-- Use BDD for the any scenario you want to do, please do unless one negative scenario.
-- You can choose any programming language, we recommend to you use Python(3>), *BUT IT'S UP TO YOU*
+- Use BDD for any scenario you want to do
+- You can choose any programming language, we recommend to you use Python 3.6+,  *BUT IT'S UP TO YOU*
 - Please follow any code style for your choose language(example: PEP's for python).
 - Describe how to run your code in README.MD
 - Please generate a report of your tests results
