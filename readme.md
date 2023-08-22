@@ -1,4 +1,4 @@
-# Test Manual/Automation QA - BEES SAAS
+# Test Automation QA - BEES SAAS
 
 ### Fork this repo and follow the instructions bellow for the test 
 <BR>
@@ -31,9 +31,4 @@ Links:
 - Describe how to run your code in README.MD
 - Please generate a report of your tests results
 
-### Technical Requirements for Manual
-- Test both UI and API
-- Documented all tests cases you created
-- For api tests you can use any framework you want, but we recommend to use Postman
-- Generate a report with evidences of the tests results
   
