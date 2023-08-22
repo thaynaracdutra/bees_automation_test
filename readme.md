@@ -1,4 +1,4 @@
-# Test Automation QA - BEES SAAS
+# Test Automation QA - BEES Marketplace
 
 ### Fork this repo and follow the instructions bellow for the test 
 <BR>
