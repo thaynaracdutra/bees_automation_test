@@ -18,11 +18,10 @@ class DepositsPage:
     def create_new_deposit(self):
         self.driver.find_element(*self.new_deposit_button).click()
 
-    def fill_deposit_form(self, name, address, city, state):
+    def fill_deposit_form(self, name, address, city):
         self.driver.find_element(*self.deposit_name_field).send_keys(name)
         self.driver.find_element(*self.deposit_address_field).send_keys(address)
         self.driver.find_element(*self.deposit_city_field).send_keys(city)
-        self.driver.find_element(*self.deposit_state_field).send_keys(state)
 
     def submit_new_deposit(self):
         self.driver.find_element(*self.create_deposit_button).click()

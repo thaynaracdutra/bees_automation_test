@@ -21,7 +21,6 @@ options = [
 for option in options:
     chrome_options.add_argument(option)
 
-
 fake = Faker()
 
 
@@ -41,12 +40,11 @@ def step_impl(context):
     context.name = fake.company()
     context.address = fake.address()
     context.city = fake.city()
-    context.state = fake.state()
     context.deposits_page = DepositsPage(context.driver)
     time.sleep(5)
     context.deposits_page.create_new_deposit()
     time.sleep(5)
-    context.deposits_page.fill_deposit_form(context.name, context.address, context.city, context.state)
+    context.deposits_page.fill_deposit_form(context.name, context.address, context.city)
 
 
 @then('I see the message indicating that a new deposit has been successfully created')
