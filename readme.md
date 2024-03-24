@@ -13,7 +13,7 @@
 * ✔️ Black, ferramenta de regras de formatação para um código consistente.
 
 ### CI/CD
-* ✔️ [GitHub Actions](https://github.com/thaynaracdutra/bees_automation_test/actions), para acionar uma pipeline a cada push, essa pipeline executa os testes automatizados com Cypress e também o ESlint para garantir testes funcionando e um código de qualidade.
+* ✔️ [GitHub Actions](https://github.com/thaynaracdutra/bees_automation_test/actions), essa pipeline executa os testes automatizados com Selenium, bahave e também o Pylint para garantir testes funcionando e um código de mais qualidade.
 * ✔️ Allure, para gerar relatório dos testes executados.
 
 ## 💻 Pré-requisitos para rodar o projeto na sua maquina
@@ -63,4 +63,4 @@ Evidencia dos testes executados.
 
 ## 💬 Comentários do autor
 
-* Este projeto conta com a execução via pipeline GitHub Actions, que é executada a cada commit e pode ter suas execuções visualizadas [aqui](https://github.com/thaynaracdutra/bees_automation_test/actions).
+* Este projeto conta com a execução via pipeline GitHub Actions, que é executada a cada push e pode ter suas execuções visualizadas [aqui](https://github.com/thaynaracdutra/bees_automation_test/actions).
