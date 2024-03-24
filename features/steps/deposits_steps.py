@@ -48,7 +48,7 @@ def step_impl(context):
     time.sleep(5)
     context.deposits_page.create_new_deposit()
     time.sleep(5)
-    context.deposits_page.fill_deposit_form(context.name, context.address, context.city, context.state, context.zipcode)
+    context.deposits_page.fill_deposit_form(context.name, context.address, context.city, context.state)
 
 
 @then('I see the message indicating that a new deposit has been successfully created')
