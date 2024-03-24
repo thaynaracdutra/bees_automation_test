@@ -30,7 +30,15 @@ Link para clonagem do projeto:
 git clone https://github.com/thaynaracdutra/bees_automation_test.git
 ```
 
-Após clonar o repositório para sua máquina você deverá instalar as dependencias do projeto inserindo o comando abaixo no seu terminal:
+Após clonar o repositório para sua máquina você deverá criar um ambiente virtual para instalar as bibliotecas, você pode fazer isso inserindo os comandos abaixo no seu terminal:
+```
+python3 -m venv .venv
+```
+```
+source .venv/bin/activate
+```
+
+Agora você deverá instalar as dependencias do projeto inserindo o comando abaixo no seu terminal:
 ```
 pip install -r requirements.txt
 ```

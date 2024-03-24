@@ -12,12 +12,12 @@ def step_impl(context):
 
 @given('the API endpoint for inventory is available with a specific ID under Inventory')
 def step_impl(context):
-    context.endpoint = f"{API_INVENTORIES_URL}/98.json"
+    context.endpoint = f"{API_INVENTORIES_URL}/124.json"
 
 
 @given('the API endpoint for inventory is available with an existing ID under Inventory')
 def step_impl(context):
-    context.endpoint = f"{API_INVENTORIES_URL}/98.json"
+    context.endpoint = f"{API_INVENTORIES_URL}/124.json"
 
 
 @when('I send a GET request to the inventory endpoint')
