@@ -1,12 +1,16 @@
-from selenium.webdriver import Chrome
 from pages.login_page import LoginPage
 from behave import *
 from pages.home_page import HomePage
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+chrome_options = Options()
+chrome_options.add_argument("--headless")
 
 
 @given('I am on the login page')
 def step_impl(context):
-    context.driver = Chrome()
+    context.driver = webdriver.Chrome(options=chrome_options)
     context.login_page = LoginPage(context.driver)
     context.driver.get("https://test-bees.herokuapp.com/users/sign_in")
     context.driver.maximize_window()

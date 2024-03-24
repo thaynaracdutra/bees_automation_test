@@ -1,15 +1,19 @@
 from faker import Faker
-from selenium.webdriver import Chrome
 from pages.home_page import HomePage
 from pages.registration_page import RegistrationPage
 from behave import *
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+chrome_options = Options()
+chrome_options.add_argument("--headless")
 
 fake = Faker()
 
 
 @given('I am on the registration page')
 def step_impl(context):
-    context.driver = Chrome()
+    context.driver = webdriver.Chrome(options=chrome_options)
     context.registration_page = RegistrationPage(context.driver)
     context.driver.get("https://test-bees.herokuapp.com/users/sign_up")
     context.driver.maximize_window()

@@ -4,20 +4,36 @@ from faker import Faker
 from pages.login_page import LoginPage
 from pages.home_page import HomePage
 from pages.deposits_page import DepositsPage
-from selenium.webdriver import Chrome
 from behave import *
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+chrome_options = Options()
+options = [
+    "--headless",
+    "--disable-gpu",
+    "--window-size=1920,1200",
+    "--ignore-certificate-errors",
+    "--disable-extensions",
+    "--no-sandbox",
+    "--disable-dev-shm-usage"
+]
+for option in options:
+    chrome_options.add_argument(option)
+
 
 fake = Faker()
 
 
 @given('I access the deposits page')
 def step_impl(context):
-    context.driver = Chrome()
+    context.driver = webdriver.Chrome(options=chrome_options)
     context.login_page = LoginPage(context.driver)
     context.login_page.login()
+    time.sleep(3)
     context.home_page = HomePage(context.driver)
     context.home_page.go_to_deposits_page()
-    time.sleep(2)
+    time.sleep(3)
 
 
 @when('I click on create new deposit, fill out the form with valid data, and submit the form')

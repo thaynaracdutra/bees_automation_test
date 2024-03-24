@@ -1,14 +1,28 @@
 import time
-from selenium.webdriver import Chrome
 from behave import *
 from pages.login_page import LoginPage
 from pages.home_page import HomePage
 from pages.inventory_page import InventoryPage
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+chrome_options = Options()
+options = [
+    "--headless",
+    "--disable-gpu",
+    "--window-size=1920,1200",
+    "--ignore-certificate-errors",
+    "--disable-extensions",
+    "--no-sandbox",
+    "--disable-dev-shm-usage"
+]
+for option in options:
+    chrome_options.add_argument(option)
 
 
 @given('I access the inventory page')
 def step_impl(context):
-    context.driver = Chrome()
+    context.driver = webdriver.Chrome(options=chrome_options)
     context.login_page = LoginPage(context.driver)
     context.login_page.login()
     context.home_page = HomePage(context.driver)
