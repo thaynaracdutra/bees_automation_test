@@ -5,27 +5,27 @@ from config import API_DEPOSITS_URL
 latest_deposit_id = None
 
 
-@given('I have the API endpoint')
+@given('the API endpoint is available')
 def step_impl(context):
     context.endpoint = f"{API_DEPOSITS_URL}{'.json'}"
 
 
-@given('I have the API endpoint with ID "160"')
+@given('the API endpoint for inventory is available with a specific ID under Deposits')
 def step_impl(context):
-    context.endpoint = f"{API_DEPOSITS_URL}{'/160.json'}"
+    context.endpoint = f"{API_DEPOSITS_URL}{'/246.json'}"
 
 
-@given('I have the API endpoint with ID "165"')
+@given('the API endpoint for inventory is available with an existing ID under Deposits')
 def step_impl(context):
-    context.endpoint = f"{API_DEPOSITS_URL}{'/165.json'}"
+    context.endpoint = f"{API_DEPOSITS_URL}{'/246.json'}"
 
 
-@when('I make a GET request to the endpoint')
+@when('I send a GET request to the endpoint')
 def step_impl(context):
     context.response = requests.get(context.endpoint)
 
 
-@when('I make a POST request to the endpoint with the following deposit data')
+@when('I send a POST request to the endpoint with the following deposit data')
 def step_impl(context):
     global latest_deposit_id
     deposit_data = {
@@ -40,7 +40,7 @@ def step_impl(context):
     latest_deposit_id = context.response.json()['id']
 
 
-@when('I make a DELETE request to the endpoint')
+@when('I send a DELETE request to the endpoint')
 def step_impl(context):
     global latest_deposit_id
     delete_url = f"{API_DEPOSITS_URL}/{latest_deposit_id}.json"
@@ -48,50 +48,34 @@ def step_impl(context):
     context.response = response
 
 
-@when('I make a  PUT request to the endpoint to edit the name')
+@when('I send a PUT request to the endpoint to update the address')
 def step_impl(context):
     deposit_data = {
-        "name": "Zé edit",
-        "address": "Zé street",
-        "city": "Zé city",
-        "state": "Zé state",
-        "zipcode": "Zé zipcode"
+        "address": "Update Address",
     }
     headers = {'Content-Type': 'application/json'}
     context.response = requests.put(context.endpoint, json=deposit_data, headers=headers)
 
 
-@when('I delete a created deposit')
-def step_impl(context):
-    global latest_deposit_id
-    delete_url = f"{context.endpoint}/{latest_deposit_id}"
-    response = requests.delete(delete_url)
-    context.response = response
-
-
-@when('I make a PATCH request to the endpoint to edit the city')
+@when('I send a PATCH request to the endpoint to update the city')
 def step_impl(context):
     deposit_data = {
-        "name": "Zé",
-        "address": "Zé street",
-        "city": "Zé city edit",
-        "state": "Zé state",
-        "zipcode": "Zé zipcode"
+        "city": "Update city",
     }
     headers = {'Content-Type': 'application/json'}
     context.response = requests.patch(context.endpoint, json=deposit_data, headers=headers)
 
 
-@then('I should receive a successful response 200 Code')
+@then('I should receive a successful response with status code 200')
 def step_impl(context):
     assert context.response.status_code == 200, f"Expected status code 200, but got {context.response.status_code}"
 
 
-@then('I should receive a successful response 201 Code')
+@then('I expect to receive a successful response with status code 201')
 def step_impl(context):
     assert context.response.status_code == 201, f"Expected status code 201, but got {context.response.status_code}"
 
 
-@then('I should receive a successful response 204 Code')
+@then('I should receive a successful response with status code 204')
 def step_impl(context):
     assert context.response.status_code == 204, f"Expected status code 204, but got {context.response.status_code}"

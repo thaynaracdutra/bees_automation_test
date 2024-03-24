@@ -7,7 +7,7 @@ from selenium.common.exceptions import TimeoutException
 class ItemsPage:
     def __init__(self, driver):
         self.driver = driver
-        self.new_item_button = (By.XPATH, '/html/body/div/a')
+        self.new_item = (By.XPATH, '/html/body/div/a')
         self.item_name_field = (By.XPATH, '//*[@id="item_name"]')
         self.item_height_field = (By.XPATH, '//*[@id="item_height"]')
         self.item_width_field = (By.XPATH, '//*[@id="item_width"]')
@@ -16,10 +16,10 @@ class ItemsPage:
         self.item_created_message = (By.XPATH, '/html/body/div/p')
 
     def create_new_item(self):
-        self.driver.find_element(*self.new_item_button).click()
+        self.driver.find_element(*self.new_item).click()
 
     def fill_item_form(self):
-        self.driver.find_element(*self.item_name_field).send_keys("Corona")
+        self.driver.find_element(*self.item_name_field).send_keys("Zúleide")
         self.driver.find_element(*self.item_height_field).send_keys("0.8")
         self.driver.find_element(*self.item_width_field).send_keys("0.8")
         self.driver.find_element(*self.item_weight_field).send_keys("0.8")

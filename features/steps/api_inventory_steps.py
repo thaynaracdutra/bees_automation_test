@@ -5,32 +5,32 @@ from config import API_INVENTORIES_URL
 latest_inventory_id = None
 
 
-@given('I have the API endpoint for inventory')
+@given('the API endpoint for inventory is available')
 def step_impl(context):
     context.endpoint = f"{API_INVENTORIES_URL}.json"
 
 
-@given('I have the API endpoint with ID "1" for inventory')
+@given('the API endpoint for inventory is available with a specific ID under Inventory')
 def step_impl(context):
-    context.endpoint = f"{API_INVENTORIES_URL}/1.json"
+    context.endpoint = f"{API_INVENTORIES_URL}/98.json"
 
 
-@given('I have the API endpoint with ID "165" for inventory')
+@given('the API endpoint for inventory is available with an existing ID under Inventory')
 def step_impl(context):
-    context.endpoint = f"{API_INVENTORIES_URL}/165.json"
+    context.endpoint = f"{API_INVENTORIES_URL}/98.json"
 
 
-@when('I make a GET request to the endpoint inventory')
+@when('I send a GET request to the inventory endpoint')
 def step_impl(context):
     context.response = requests.get(context.endpoint)
 
 
-@when('I make a POST request to the endpoint with the following deposit data inventory')
+@when('I send a POST request to the inventory endpoint with the following inventory data')
 def step_impl(context):
     global latest_inventory_id
     inventory_data = {
-        "item_id": 105,
-        "deposit_id": 168,
+        "item_id": 166,
+        "deposit_id": 253,
         "item_count": 100
     }
     headers = {'Content-Type': 'application/json'}
@@ -38,7 +38,7 @@ def step_impl(context):
     latest_inventory_id = context.response.json()['id']
 
 
-@when('I make a DELETE request to the endpoint inventory')
+@when('I send a DELETE request to the inventory endpoint')
 def step_impl(context):
     global latest_inventory_id
     delete_url = f"{API_INVENTORIES_URL}/{latest_inventory_id}.json"
@@ -46,42 +46,38 @@ def step_impl(context):
     context.response = response
 
 
-@when('I make a PUT request to the endpoint to edit the inventory ID')
+@when('I send a PUT request to the inventory endpoint to update the inventory ID')
 def step_impl(context):
     global latest_inventory_id
-    put_url = f"{API_INVENTORIES_URL}/{latest_inventory_id}.json"
+    put_url = f"{API_INVENTORIES_URL}/98.json"
     inventory_data = {
-        "item_id": 102,
-        "deposit_id": 163,
-        "item_count": 99
+        "item_count": 100
     }
     headers = {'Content-Type': 'application/json'}
     context.response = requests.put(put_url, json=inventory_data, headers=headers)
 
 
-@when('I make a PATCH request to the endpoint to edit the item ID inventory')
+@when('I send a PATCH request to the inventory endpoint to update the item ID')
 def step_impl(context):
     global latest_inventory_id
-    patch_url = f"{API_INVENTORIES_URL}/{latest_inventory_id}.json"
+    patch_url = f"{API_INVENTORIES_URL}/98.json"
     inventory_data = {
-        "item_id": 102,
-        "deposit_id": 163,
-        "item_count": 98
+        "item_count": 101
     }
     headers = {'Content-Type': 'application/json'}
     context.response = requests.patch(patch_url, json=inventory_data, headers=headers)
 
 
-@then('I should receive a successful response 200 Code from API')
+@then('I should receive a successful response with status code 200 from the API')
 def step_impl(context):
     assert context.response.status_code == 200, f"Expected status code 200, but got {context.response.status_code}"
 
 
-@then('I should receive a successful response 201 Code from API')
+@then('I should receive a successful response with status code 201 from the API')
 def step_impl(context):
     assert context.response.status_code == 201, f"Expected status code 201, but got {context.response.status_code}"
 
 
-@then('I should receive a successful response 204 Code from API')
+@then('I should receive a successful response with status code 204 from the API')
 def step_impl(context):
     assert context.response.status_code == 204, f"Expected status code 204, but got {context.response.status_code}"

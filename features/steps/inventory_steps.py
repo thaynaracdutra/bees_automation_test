@@ -56,9 +56,11 @@ def step_impl(context):
 
 @then('I see the message indicating that a new inventory has been successfully created')
 def step_impl(context):
+    time.sleep(5)
     assert context.inventory_page.inventory_created_displayed()
 
 
 @then('I see the message indicating that inventory has been successfully destroyed')
 def step_impl(context):
+    time.sleep(5)
     assert context.inventory_page.inventory_destroyed_displayed()

@@ -1,30 +1,31 @@
 Feature: API Inventory
-  Scenario: List all existing deposits using the /GET method
-    Given I have the API endpoint for inventory
-    When I make a GET request to the endpoint inventory
-    Then I should receive a successful response 200 Code from API
 
-  Scenario: Create a new deposit using the /POST method
-    Given I have the API endpoint for inventory
-    When I make a POST request to the endpoint with the following deposit data inventory
-    Then I should receive a successful response 201 Code from API
+  Scenario: List all existing inventory via the /GET method
+    Given the API endpoint for inventory is available
+    When I send a GET request to the inventory endpoint
+    Then I should receive a successful response with status code 200 from the API
 
-  Scenario: Show an existing deposit by ID using the /GET method
-    Given I have the API endpoint with ID "1" for inventory
-    When I make a GET request to the endpoint inventory
-    Then I should receive a successful response 200 Code from API
+  Scenario: Create a new inventory via the /POST method
+    Given the API endpoint for inventory is available
+    When I send a POST request to the inventory endpoint with the following inventory data
+    Then I should receive a successful response with status code 201 from the API
 
-  Scenario: Update an existing deposit by ID using the /PUT method
-    Given I have the API endpoint with ID "165" for inventory
-    When I make a PUT request to the endpoint to edit the inventory ID
-    Then I should receive a successful response 200 Code from API
+  Scenario: Retrieve an existing inventory by ID via the /GET method
+    Given the API endpoint for inventory is available with a specific ID under Inventory
+    When I send a GET request to the inventory endpoint
+    Then I should receive a successful response with status code 200 from the API
 
-  Scenario: Update an existing deposit by ID using the /PATCH method
-    Given I have the API endpoint with ID "165" for inventory
-    When I make a PATCH request to the endpoint to edit the item ID inventory
-    Then I should receive a successful response 200 Code from API
+  Scenario: Update an existing inventory by ID via the /PUT method
+    Given the API endpoint for inventory is available with an existing ID under Inventory
+    When I send a PUT request to the inventory endpoint to update the inventory ID
+    Then I should receive a successful response with status code 200 from the API
 
-  Scenario: Delete an existing deposit by ID using the /DELETE method
-    Given I have the API endpoint for inventory
-    When I make a DELETE request to the endpoint inventory
-    Then I should receive a successful response 204 Code from API
+  Scenario: Modify an existing inventory by ID via the /PATCH method
+    Given the API endpoint for inventory is available with an existing ID under Inventory
+    When I send a PATCH request to the inventory endpoint to update the item ID
+    Then I should receive a successful response with status code 200 from the API
+
+  Scenario: Delete an existing inventory by ID via the /DELETE method
+    Given the API endpoint for inventory is available
+    When I send a DELETE request to the inventory endpoint
+    Then I should receive a successful response with status code 204 from the API

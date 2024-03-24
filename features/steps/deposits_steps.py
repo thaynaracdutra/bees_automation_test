@@ -43,7 +43,6 @@ def step_impl(context):
     context.city = fake.city()
     context.state = fake.state()
     context.deposits_page = DepositsPage(context.driver)
-    context.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     time.sleep(5)
     context.deposits_page.create_new_deposit()
     time.sleep(5)
@@ -52,4 +51,5 @@ def step_impl(context):
 
 @then('I see the message indicating that a new deposit has been successfully created')
 def step_impl(context):
+    time.sleep(5)
     assert context.deposits_page.deposit_created_displayed()

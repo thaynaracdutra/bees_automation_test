@@ -25,12 +25,12 @@ class InventoryPage:
         item_dropdown_element = self.driver.find_element(*self.dropdown_item)
         item_dropdown_element.click()
         item_dropdown = Select(item_dropdown_element)
-        item_dropdown.select_by_visible_text("Coronita")
+        item_dropdown.select_by_visible_text("Nao excluir")
 
         deposit_dropdown_element = self.driver.find_element(*self.dropdown_deposit)
         deposit_dropdown_element.click()
         deposit_dropdown = Select(deposit_dropdown_element)
-        deposit_dropdown.select_by_visible_text("Bees")
+        deposit_dropdown.select_by_visible_text("Nao excluir")
 
         self.driver.find_element(*self.item_count).send_keys("100")
 

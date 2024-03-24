@@ -1,30 +1,30 @@
-Feature: API Deposits
-  Scenario: List all existing deposits using the /GET method
-    Given I have the API endpoint for items
-    When I make a GET request to the endpoint for items
-    Then I should receive a successful response 200 Code from Items API
+Feature: API Items
+  Scenario: List all existing items via the /GET method
+    Given the API endpoint for items is available
+    When I send a GET request to the items endpoint
+    Then I should receive a successful response with status code 200 from the Items API
 
-  Scenario: Create a new deposit using the /POST method
-    Given I have the API endpoint for items
-    When I make a POST request to the endpoint with the following items data
-    Then I should receive a successful response 201 Code from Items API
+  Scenario: Create a new item via the /POST method
+    Given the API endpoint for items is available
+    When I send a POST request to the items endpoint with the following items data
+    Then I should receive a successful response with status code 201 from the Items API
 
-  Scenario: Show an existing deposit by ID using the /GET method
-    Given I have the API endpoint with ID "101"
-    When I make a GET request to the endpoint for items
-    Then I should receive a successful response 200 Code from Items API
+  Scenario: Retrieve an existing item by ID via the /GET method
+    Given the API endpoint for inventory is available with a specific ID under Items
+    When I send a GET request to the items endpoint
+    Then I should receive a successful response with status code 200 from the Items API
 
-  Scenario: Update an existing deposit by ID using the /PUT method
-    Given I have the API endpoint with ID "34"
-    When I make a  PUT request to the endpoint to edit the width
-    Then I should receive a successful response 200 Code from Items API
+  Scenario: Update an existing item by ID via the /PUT method
+    Given the API endpoint for inventory is available with an existing ID under Items
+    When I send a PUT request to the items endpoint to edit the width
+    Then I should receive a successful response with status code 200 from the Items API
 
-  Scenario: I make a PATCH request to the endpoint to edit the height
-    Given I have the API endpoint with ID "34"
-    When I make a PATCH request to the endpoint to edit the city
-    Then I should receive a successful response 200 Code from Items API
+  Scenario: Modify an existing item by ID via the /PATCH method
+    Given the API endpoint for inventory is available with an existing ID under Items
+    When I send a PATCH request to the items endpoint to edit the height
+    Then I should receive a successful response with status code 200 from the Items API
 
-  Scenario: Delete an existing item by ID using the /DELETE method
-    Given I have the API endpoint for items
-    When I make a DELETE request to the endpoint items
-    Then I should receive a successful response 204 Code from Items API
+  Scenario: Delete an existing item by ID via the /DELETE method
+    Given the API endpoint for items is available
+    When I send a DELETE request to the items endpoint
+    Then I should receive a successful response with status code 204 from the Items API

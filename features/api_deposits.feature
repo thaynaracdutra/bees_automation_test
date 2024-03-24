@@ -1,30 +1,31 @@
 Feature: API Deposits
-  Scenario: List all existing deposits using the /GET method
-    Given I have the API endpoint
-    When I make a GET request to the endpoint
-    Then I should receive a successful response 200 Code
 
-  Scenario: Create a new deposit using the /POST method
-    Given I have the API endpoint
-    When I make a POST request to the endpoint with the following deposit data
-    Then I should receive a successful response 201 Code
+  Scenario: List all existing deposits via the /GET method
+    Given the API endpoint is available
+    When I send a GET request to the endpoint
+    Then I should receive a successful response with status code 200
 
-  Scenario: Show an existing deposit by ID using the /GET method
-    Given I have the API endpoint with ID "160"
-    When I make a GET request to the endpoint
-    Then I should receive a successful response 200 Code
+  Scenario: Create a new deposit via the /POST method
+    Given the API endpoint is available
+    When I send a POST request to the endpoint with the following deposit data
+    Then I expect to receive a successful response with status code 201
 
-  Scenario: Update an existing deposit by ID using the /PUT method
-    Given I have the API endpoint with ID "165"
-    When I make a  PUT request to the endpoint to edit the name
-    Then I should receive a successful response 200 Code
+  Scenario: Retrieve an existing deposit by ID via the /GET method
+    Given the API endpoint for inventory is available with a specific ID under Deposits
+    When I send a GET request to the endpoint
+    Then I should receive a successful response with status code 200
 
-  Scenario: Update an existing deposit by ID using the /PATCH method
-    Given I have the API endpoint with ID "165"
-    When I make a PATCH request to the endpoint to edit the city
-    Then I should receive a successful response 200 Code
+  Scenario: Update an existing deposit by ID via the /PUT method
+    Given the API endpoint for inventory is available with an existing ID under Deposits
+    When I send a PUT request to the endpoint to update the address
+    Then I should receive a successful response with status code 200
 
-  Scenario: Delete an existing deposit by ID using the /DELETE method
-    Given I have the API endpoint
-    When I make a DELETE request to the endpoint
-    Then I should receive a successful response 204 Code
+  Scenario: Modify an existing deposit by ID via the /PATCH method
+    Given the API endpoint for inventory is available with an existing ID under Deposits
+    When I send a PATCH request to the endpoint to update the city
+    Then I should receive a successful response with status code 200
+
+  Scenario: Delete an existing deposit by ID via the /DELETE method
+    Given the API endpoint is available
+    When I send a DELETE request to the endpoint
+    Then I should receive a successful response with status code 204
