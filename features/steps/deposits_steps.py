@@ -30,10 +30,10 @@ def step_impl(context):
     context.driver = webdriver.Chrome(options=chrome_options)
     context.login_page = LoginPage(context.driver)
     context.login_page.login()
-    time.sleep(3)
+    time.sleep(5)
     context.home_page = HomePage(context.driver)
     context.home_page.go_to_deposits_page()
-    time.sleep(3)
+    time.sleep(5)
 
 
 @when('I click on create new deposit, fill out the form with valid data, and submit the form')
@@ -45,9 +45,9 @@ def step_impl(context):
     context.zipcode = fake.zip()
     context.deposits_page = DepositsPage(context.driver)
     context.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(3)
+    time.sleep(5)
     context.deposits_page.create_new_deposit()
-    time.sleep(3)
+    time.sleep(5)
     context.deposits_page.fill_deposit_form(context.name, context.address, context.city, context.state, context.zipcode)
 
 
