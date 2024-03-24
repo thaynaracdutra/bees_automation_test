@@ -42,7 +42,6 @@ def step_impl(context):
     context.address = fake.address()
     context.city = fake.city()
     context.state = fake.state()
-    context.zipcode = fake.zip()
     context.deposits_page = DepositsPage(context.driver)
     context.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     time.sleep(5)

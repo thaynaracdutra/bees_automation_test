@@ -12,14 +12,13 @@ class DepositsPage:
         self.deposit_address_field = (By.XPATH, '//*[@id="deposit_address"]')
         self.deposit_city_field = (By.XPATH, '//*[@id="deposit_city"]')
         self.deposit_state_field = (By.XPATH, '//*[@id="deposit_state"]')
-        self.deposit_zipcode_field = (By.XPATH, '//*[@id="deposit_zipcode"]')
         self.create_deposit_button = (By.NAME, 'commit')
         self.deposit_created_message = (By.XPATH, '/html/body/div/p')
 
     def create_new_deposit(self):
         self.driver.find_element(*self.new_deposit_button).click()
 
-    def fill_deposit_form(self, name, address, city, state, zipcode):
+    def fill_deposit_form(self, name, address, city, state):
         self.driver.find_element(*self.deposit_name_field).send_keys(name)
         self.driver.find_element(*self.deposit_address_field).send_keys(address)
         self.driver.find_element(*self.deposit_city_field).send_keys(city)
