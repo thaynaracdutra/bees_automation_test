@@ -49,7 +49,7 @@ def step_impl(context):
 @when('I send a PUT request to the inventory endpoint to update the inventory ID')
 def step_impl(context):
     global latest_inventory_id
-    put_url = f"{API_INVENTORIES_URL}/98.json"
+    put_url = f"{API_INVENTORIES_URL}/124.json"
     inventory_data = {
         "item_count": 100
     }
@@ -60,7 +60,7 @@ def step_impl(context):
 @when('I send a PATCH request to the inventory endpoint to update the item ID')
 def step_impl(context):
     global latest_inventory_id
-    patch_url = f"{API_INVENTORIES_URL}/98.json"
+    patch_url = f"{API_INVENTORIES_URL}/124.json"
     inventory_data = {
         "item_count": 101
     }
